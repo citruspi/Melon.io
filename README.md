@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Introduction
 
 Melon.io provides an interface to retrieve information like:
@@ -50,3 +51,6 @@ _Weather data provided by [Weather Underground]()._
 | Query Format:|`weather::zip code`|
 | Sample Query |`weather::07726`|
 | Sample `response` | Location: 07726 Condition: Overcast Temperature: 35.2 F (1.8 C) Feels Like: 35 F (2 C) Wind: Calm Humidity: 64% |
+=======
+Coming soon.
+>>>>>>> 00008635d1feb0edc048066ad8b484474cbb3600
