@@ -20,7 +20,8 @@ class melonio:
         
         if success:
             
-            return json.dumps(dict(response=response,
+            return json.dumps(dict(success=success,
+                                   response=response,
                                    query=dict(service=service,
                                               options=options,
                                               input=inputx)))
