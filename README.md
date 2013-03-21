@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Introduction
 
 Melon.io provides an interface to retrieve information like:
