@@ -2,6 +2,7 @@ import re
 import json
 from service_map import service_map
 import requests
+from config import config
 
 class melonio:
 
@@ -59,15 +60,15 @@ class melonio:
             
             raise Exception("Invalid zip code.")
                         
-        geocode_data = requests.get('http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false' % (inputx)).json()
-                    
-        lat, lng = geocode_data['results'][0]['geometry']['location']['lat'], geocode_data['results'][0]['geometry']['location']['lng']
-                
-        weather_data = requests.get('http://api.openweathermap.org/data/2.1/find/station?lat=%s&lon=%s&radius=10' % (lat, lng)).json()
-                
-        temp = (lambda x: '%.2f' % ((x-273.15) * 1.8 +32))(weather_data['list'][0]['main']['temp'])
+        data = requests.get('http://api.wunderground.com/api/%s/forecast/geolookup/conditions/q/%s.json' %
+                            (config['API_KEYS']['WUNDERGROUND'], inputx)).json()['current_observation']
 
-        return 'Location:%s Temperature(F):%s' % (inputx, temp)
+        return 'Location: %s Condition: %s Temperature: %s Feels Like: %s Wind: %s Humidity: %s' % (inputx, 
+                                                                                                      data['weather'],
+                                                                                                      data['temperature_string'],
+                                                                                                      data['feelslike_string'],
+                                                                                                      data['wind_string'],
+                                                                                                      data['relative_humidity'])
 
-                
+
 melonio = melonio()
