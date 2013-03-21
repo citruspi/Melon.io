@@ -3,6 +3,7 @@ import json
 from service_map import service_map
 import requests
 from config import config
+from bs4 import BeautifulSoup
 
 class melonio:
 
@@ -55,7 +56,7 @@ class melonio:
             return self.response(service=service,options=options,inputx=inputx,success=False,error=str(e))
         
         
-    def weather(param1, options, inputx):
+    def weather(self, options, inputx):
                 
         if not inputx.isdigit() and len(inputx) != 5:
             
@@ -71,5 +72,19 @@ class melonio:
                                                                                                       data['wind_string'],
                                                                                                       data['relative_humidity'])
 
-
+    def urban_dict(self, options, inputx):
+     
+        data = requests.get('http://www.urbandictionary.com/define.php?term=%s' % (inputx)).text
+        
+        soup = BeautifulSoup(data)
+        
+        definitions = soup.findAll('div', {'class': 'definition'})
+        
+        if len(definitions) == 0:
+          
+            raise Exception("Term not defined.")
+            
+        return definitions[0].getText()
+       
+  
 melonio = melonio()

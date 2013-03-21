@@ -1,3 +1,8 @@
+## 0.0.3 (March 21, 2012)
+
+- Urban Dictionary implemented
+- New Dependency - Beautiful Soup
+
 ## 0.0.2 (March 20, 2012)
 
 - `config` implemented

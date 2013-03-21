@@ -46,8 +46,16 @@ _Weather data provided by [Weather Underground]()._
 
 | | |
 |:-----------|:------------|
-| Options|None|
 | Query Format:|`weather::zip code`|
 | Sample Query |`weather::07726`|
 | Sample `response` | Location: 07726 Condition: Overcast Temperature: 35.2 F (1.8 C) Feels Like: 35 F (2 C) Wind: Calm Humidity: 64% |
-=======
+
+### Urban Dictionary
+
+#### Define Word
+
+| | |
+|:-----------|:------------|
+| Query Format:|`urban dictionary::word`|
+| Sample Query |`weather::python`|
+| Sample `response` | Python is a powerful high-level interpreted language. Python's design is notably clean, elegant, and well thought through; it tends to attract the sort of programmers who find Perl grubby and exiguous. |
